@@ -1,0 +1,5 @@
+venv
+node_modeules
+.DS_Store
+.env
+*.log        
