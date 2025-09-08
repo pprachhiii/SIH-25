@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
-const { ACCESS_TOKEN_SECRET } = require("../../../../shared/jwtConfig");
+const {
+  ACCESS_TOKEN_SECRET,
+} = require("../../../notification_service/src/utils/config");
 
 function verifyToken(req, res, next) {
   try {

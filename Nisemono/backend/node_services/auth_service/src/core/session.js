@@ -1,4 +1,4 @@
-const client = require("./redisClient");
+const client = require("../../../notification_service/src/utils/redisClient");
 
 async function storeSession(token, userId, ttl = 7 * 24 * 60 * 60) {
   await client.set(`session:${token}`, userId, { EX: ttl });

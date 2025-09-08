@@ -2,7 +2,7 @@ const { generateAccessToken, generateRefreshToken } = require("./token");
 const { storeSession, isTokenBlacklisted, revokeToken } = require("./session");
 const { comparePassword } = require("../utils/passwordHash");
 const { generateOTP, sendOtpEmail } = require("../utils/otp");
-const client = require("./redisClient");
+const client = require("../../../notification_service/src/utils/redisClient");
 
 async function login(user, password, otpInput) {
   console.log("[Login] Starting login for user:", user.email);
@@ -60,7 +60,9 @@ async function refreshToken(refreshToken) {
   if (blacklisted) throw new Error("Refresh token revoked or invalid");
 
   const jwt = require("jsonwebtoken");
-  const { REFRESH_TOKEN_SECRET } = require("../../../../shared/jwtConfig");
+  const {
+    REFRESH_TOKEN_SECRET,
+  } = require("../../../notification_service/src/utils/config");
 
   let payload;
   try {

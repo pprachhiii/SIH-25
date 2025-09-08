@@ -1,4 +1,6 @@
-const { sendEmail } = require("./email");
+const {
+  sendEmail,
+} = require("../../../notification_service/src/services/email.service");
 
 function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString();

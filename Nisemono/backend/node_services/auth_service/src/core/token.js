@@ -4,7 +4,7 @@ const {
   REFRESH_TOKEN_SECRET,
   ACCESS_TOKEN_EXPIRY,
   REFRESH_TOKEN_EXPIRY,
-} = require("../../../../shared/jwtConfig");
+} = require("../../../notification_service/src/utils/config");
 
 function generateAccessToken(user) {
   return jwt.sign({ id: user.id, role: user.role }, ACCESS_TOKEN_SECRET, {

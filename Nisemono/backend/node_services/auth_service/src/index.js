@@ -1,6 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/auth.routes");
+const {
+  PORT,
+} = require("../../../node_services/notification_service/src/utils/config");
 
 const app = express();
 
