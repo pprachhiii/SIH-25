@@ -36,5 +36,21 @@ async function addUserToDB(user) {
   mockUsers.push(user);
   return user;
 }
+// async function getUserFromDB(identifier) {
+//   const [rows] = await pool.query(
+//     "SELECT * FROM users WHERE email = ? OR username = ?",
+//     [identifier, identifier]
+//   );
+//   return rows[0] || null;
+// }
+
+// async function addUserToDB(user) {
+//   const [result] = await pool.query(
+//     "INSERT INTO users (email, username, passwordHash, role, requiresOtp) VALUES (?, ?, ?, ?, ?)",
+//     [user.email, user.username, user.passwordHash, user.role, user.requiresOtp]
+//   );
+//   user.id = result.insertId;
+//   return user;
+// }
 
 module.exports = { getUserFromDB, addUserToDB };
