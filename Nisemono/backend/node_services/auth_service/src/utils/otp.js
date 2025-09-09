@@ -7,6 +7,8 @@ function generateOTP() {
 }
 
 async function sendOtpEmail(to, otp) {
+  if (!to) throw new Error("Recipient email is required");
+
   const subject = "Your One-Time Password (OTP)";
 
   const html = `
@@ -27,7 +29,12 @@ async function sendOtpEmail(to, otp) {
   </div>
   `;
 
-  return await sendEmail(to, subject, html);
+  return await sendEmail({
+    to,
+    subject,
+    html,
+    text: `Your OTP is ${otp}`, // fallback for non-HTML clients
+  });
 }
 
 module.exports = { generateOTP, sendOtpEmail };
