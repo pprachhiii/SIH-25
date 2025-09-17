@@ -77,7 +77,13 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-white text-foreground relative overflow-hidden">
       {/* Brand */}
-      <header className="absolute left-6 top-6 text-lg font-medium tracking-wide">Name</header>
+      <header className="absolute left-6 top-6">
+        <img
+          src={"/assets/Logo%20dark%20(2470x726).png"}
+          alt="Logo"
+          style={{ height: 40, width: "auto" }}
+        />
+      </header>
 
       {/* Left floating toolbar */}
       <aside className="fixed left-4 top-1/2 -translate-y-1/2 select-none">
@@ -267,7 +273,7 @@ export default function Index() {
               Save
             </button>
             <button
-              onClick={()=>{ clearAll(); nav('/'); }}
+              onClick={()=>{ clearAll(); nav('/login'); }}
               className="rounded-lg bg-white px-3 py-1.5 text-red-600 ring-1 ring-red-200 shadow-sm"
             >
               Logout
